@@ -12,7 +12,8 @@ public:
                 game.push_back("Buzz");
             }
             else{
-                game.push_back(to_string(i));
+                string ch = to_string(i);
+                game.push_back(ch);
             }
         }
         return game;

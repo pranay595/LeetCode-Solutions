@@ -15,7 +15,7 @@ public:
             return head;
         }
         ListNode* temp = head;
-        while(temp->next!=NULL && temp!=NULL){
+        while(temp!=NULL && temp->next!=NULL){
             if(temp->val==temp->next->val){
                 ListNode* todelete = temp->next;
                 temp->next=temp->next->next;

@@ -17,9 +17,9 @@ public:
         ListNode* temp = head;
         while(temp->next!=NULL && temp!=NULL){
             if(temp->val==temp->next->val){
-                // ListNode* todelete = temp->next;
+                ListNode* todelete = temp->next;
                 temp->next=temp->next->next;
-                // delete todelete;
+                delete todelete;
             }
             else
             temp=temp->next;

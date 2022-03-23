@@ -9,8 +9,10 @@ public:
             ++mp[nums[i]];
         }
         
+        int major = n/3;
+        
         for(auto i:mp){
-            if(i.second>n/3)
+            if(i.second>major)
                 ans.push_back(i.first);
         }
         return ans;

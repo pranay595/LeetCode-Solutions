@@ -15,21 +15,20 @@ public:
         
         if(nums[nums.size()-1]>nums[nums.size()-2])
             return nums.size()-1;
-        int prev = 0;
-        int curr = 1;
-        int nxt = 2;
+      
+        int start = 1;
+        int end = nums.size()-2;
         
-        int ans = curr;
-        while(nxt<nums.size()){
-        if(nums[curr]>nums[prev] && nums[curr]>nums[nxt]){
-            ans = curr;
-            break;
+        while(start<=end){
+            int mid = start+(end-start)/2;
+            if(nums[mid]>nums[mid+1] && nums[mid]>nums[mid-1])
+                return mid;
+            else if(nums[mid]<nums[mid-1])
+                end = mid - 1;
+            else if(nums[mid]<nums[mid+1])
+                start = mid + 1;
         }
-        else{
-            prev++;
-            curr++;
-            nxt++;
-        }}
-        return ans;
+        
+        return -1;
     }
 };

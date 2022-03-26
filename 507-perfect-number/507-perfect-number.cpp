@@ -1,12 +1,13 @@
 class Solution {
 public:
     bool checkPerfectNumber(int num) {
-           vector<int> nums = {6, 28, 496, 8128, 33550336};
-        for(int i=0;i<nums.size();i++){
-            if(num==nums[i]){
-                return 1;
-            }
+        if(num<=1)
+            return false;
+        int sum = 0;
+        for(int i=2;i*i<=num;i++){
+            if(num%i==0)
+                sum+= i + num/i;
         }
-        return 0; 
+        return sum+1==num;
     }
 };

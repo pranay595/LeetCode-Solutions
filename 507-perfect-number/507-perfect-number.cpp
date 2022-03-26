@@ -6,8 +6,6 @@ public:
             if(num%i==0)
                 count+=i;
         }
-        if(count==num)
-            return true;
-        return false;
+        return (count==num);
     }
 };

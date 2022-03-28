@@ -8,7 +8,7 @@ public:
         sort(nums.begin(),nums.end());
         vector<vector<int>> ans;
         
-        for(int i=0;i<n-2;i++){
+        for(int i=0;i<n-1;i++){
                if( i==0 || (i>0 && nums[i]!=nums[i-1])){ 
                 int st = i+1;
                 int end = n-1;

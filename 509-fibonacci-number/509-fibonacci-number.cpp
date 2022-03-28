@@ -1,14 +1,20 @@
 class Solution {
 public:
-    int fibonacci(int n){
+    int fib(int n) {
         if(n<=1)
             return n;
-        return fibonacci(n-1)+fibonacci(n-2);
-    }
-    int fib(int n) {
-        int sum=0;
-        sum+=fibonacci(n);
-        return sum;
+        
+        int st = 0;
+        int end = 1;
+        int fibSum = 0;
+        
+        for(int i=2;i<=n;i++){
+            fibSum = st+end;
+            st = end;
+            end = fibSum;
+        }
+        
+        return fibSum;
         
     }
 };

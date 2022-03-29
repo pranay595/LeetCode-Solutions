@@ -4,12 +4,12 @@ public:
         int n = nums.size();
         
         int count = 0;
-            for(int i=0;i<n-1;i++){
-                if(nums[i]==nums[i+1] && (i-count)%2==0){
-                    count++;
-                }
+        for(int i=0;i<n-1;i++){
+            if(nums[i]==nums[i+1] && (i-count)%2==0){
+                count++;
             }
-                
-            return count + (n-count)%2;
+        }
+
+        return count + (n-count)%2;
     }
 };

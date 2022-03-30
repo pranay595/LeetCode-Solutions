@@ -31,8 +31,6 @@ void rotate(int arr[], int n)
         nums[i]=arr[i];
     }
     for(int i=0;i<n;i++){
-        // int temp = arr[i];
-        // arr[i]=arr[(i+n+1)%n];
         arr[(i+n+1)%n] = nums[i];
     }
 }

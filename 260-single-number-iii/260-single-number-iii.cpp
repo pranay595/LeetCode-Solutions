@@ -3,7 +3,7 @@ public:
     vector<int> singleNumber(vector<int>& nums) {
          int n = nums.size();
         
-        long long a = nums[0];
+        long a = nums[0];
         
         for(int i=1;i<n;i++){
             a^=nums[i];

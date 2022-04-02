@@ -5,7 +5,6 @@ public:
         int st = 0;
         int end = n-1;
         int countSt = 0;
-        int countEnd = 0;
         
         while(st<=end){
             if(s[st]==s[end]){
@@ -22,6 +21,7 @@ public:
         
         st = 0;
         end = n-1;
+        int countEnd = 0;
         
          while(st<=end){
             if(s[st]==s[end]){

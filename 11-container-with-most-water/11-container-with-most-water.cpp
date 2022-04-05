@@ -1,8 +1,6 @@
 class Solution {
 public:
     int maxArea(vector<int>& height) {
-        
-        int area = 0;
         int maxArea = 0;
         
         int st = 0;
@@ -10,9 +8,7 @@ public:
         
         while(st<end){
             
-            area = min(height[st],height[end])*(end-st);
-            
-            maxArea = max(area,maxArea);
+            maxArea = max(min(height[st],height[end])*(end-st),maxArea);
             
             if(height[st]<height[end])
                 st++;

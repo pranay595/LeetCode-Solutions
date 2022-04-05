@@ -7,9 +7,9 @@ public:
         }
         while(n){
             if(n&1)
-                ans=ans*x;
-            x=x*x;
-            n=n/2;
+                ans*=x;
+            x*=x;
+            n/=2;
         }
         return ans;
     }

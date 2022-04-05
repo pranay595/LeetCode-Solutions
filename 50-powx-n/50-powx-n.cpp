@@ -6,7 +6,7 @@ public:
             x=1/x;
         }
         while(n){
-            if((n&1)!=0)
+            if(n&1)
                 ans=ans*x;
             x=x*x;
             n=n/2;

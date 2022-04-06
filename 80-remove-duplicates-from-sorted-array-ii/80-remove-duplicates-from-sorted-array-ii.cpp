@@ -2,26 +2,23 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         int n = nums.size();
-        unordered_map<int,int> mp;
+        map<int,int> mp;
         
         for(int i=0;i<n;i++){
             ++mp[nums[i]];
         }
         
-        int st = 0;
+        nums.clear();
         for(auto i:mp){
             if(i.second==1){
-                nums[st]=i.first;
-                st++;
+                nums.push_back(i.first);
             }
             if(i.second>1){
-                nums[st]=i.first;
-                st++;
-                nums[st]=i.first;
-                st++;
+                nums.push_back(i.first);
+                nums.push_back(i.first);
             }
         }
-        sort(nums.begin(),nums.begin()+st);
-        return st;
+        
+        return nums.size();
     }
 };

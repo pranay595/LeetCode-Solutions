@@ -17,6 +17,9 @@ public:
         helper(nums,ans,0,nums.size()-1);
         
         set<vector<int>> st;
+        /* unordered_set<vector<int>> st will give an error, I found reason for it on stacoverflow --
+        It's because unordered_set is using std::hash template to compute hash for its entries and there is no std::hash for pairs. You have to define custom hash to use unordered_set.
+        */ 
         int n = ans.size();
         
         for(int i=0;i<n;i++){

@@ -16,10 +16,11 @@ public:
             if(st1!=st2){
                 stones.push_back(st1-st2);
                 end--;
+                sort(stones.begin(),stones.end());
             }else{
                 end-=2;
             }
-            sort(stones.begin(),stones.end());
+            
         }
         if(stones.empty())
             return 0;

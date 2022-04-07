@@ -13,7 +13,7 @@ public:
             stones.pop_back();
             stones.pop_back();
             
-            if(st1!=st2){
+            if(st1^st2){
                 stones.push_back(st1-st2);
                 end--;
                 sort(stones.begin(),stones.end());

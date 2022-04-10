@@ -12,8 +12,7 @@ public:
             }
             
             else if(ops[i]=="D"){
-                int temp = s[s.size()-1];
-                s.push_back(temp*2);
+                s.push_back(s[s.size()-1]*2);
             }
             
             else if(ops[i]=="+"){

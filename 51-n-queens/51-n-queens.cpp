@@ -1,44 +1,24 @@
 class Solution {
 public:
     
-    bool isSafe(int row, int col, vector<string>& board, int n){
-        for(int i=0;i<col;i++){
-            if(board[row][i]=='Q')
-                return false;
-        }
-        
-        int x = row;
-        int y = col;
-        while(x>=0 && y>=0){
-            if(board[x][y]=='Q')
-                return false;
-            y--;
-            x--;
-        }
-        
-        x = row;
-        y = col;
-        while(x<n && y>=0){
-            if(board[x][y]=='Q')
-                return false;
-            x++;
-            y--;
-        }
-        
-        return true;
-    }
     
-    void solve(int col, vector<string>& board, vector<vector<string>>& ans, int n){
+    void solve(int col, vector<string>& board, vector<vector<string>>& ans, int n, vector<int>& rows, vector<int>& lowerDiagonal, vector<int>& upperDiagonal){
         if(col==n){
             ans.push_back(board);
             return;
         }
         
         for(int row=0;row<n;row++){
-            if(isSafe(row,col,board,n)){
+            if(rows[row]==0 && lowerDiagonal[row+col]==0 && upperDiagonal[n-1+col-row]==0){
+                rows[row] = 1;
+                lowerDiagonal[row+col] = 1;
+                upperDiagonal[n-1+col-row] = 1;
                 board[row][col]='Q';
-                solve(col+1,board,ans,n);
+                solve(col+1,board,ans,n,rows,lowerDiagonal,upperDiagonal);
                 board[row][col]='.';
+                rows[row] = 0;
+                lowerDiagonal[row+col] = 0;
+                upperDiagonal[n-1+col-row] = 0;
             }
         }
     }
@@ -53,7 +33,9 @@ public:
             board[i]=s;
         }
         
-        solve(0,board,ans,n);
+        vector<int> rows(n,0), lowerDiagonal(2*n-1,0), upperDiagonal(2*n-1,0);
+        
+        solve(0,board,ans,n,rows,lowerDiagonal,upperDiagonal);
         
         return ans;
     }

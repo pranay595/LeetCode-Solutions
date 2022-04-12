@@ -11,7 +11,7 @@ class Solution{
 public:
     void helper(int col, vector<int>& board, vector<vector<int>>& ans, int n, vector<int>& rows,
     vector<int>& lowerDiagonal, vector<int>& upperDiagonal){
-        if(board.size()==n){
+        if(col==n){
             ans.push_back(board);
             return;
         }

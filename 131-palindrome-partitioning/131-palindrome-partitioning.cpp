@@ -1,5 +1,7 @@
 class Solution {
 public:
+    vector<vector<string>> ans;
+    
     bool isPalindrome(string s, int st, int end){
         while(st<=end){
             if(s[st++]!=s[end--])
@@ -8,7 +10,7 @@ public:
         return true;
     }
     
-    void helper(int ind, int n, vector<string>& path, vector<vector<string>>& ans, string s){
+    void helper(int ind, int n, vector<string>& path, string s){
         if(ind==n){
             ans.push_back(path);
             return;
@@ -17,7 +19,7 @@ public:
         for(int i=ind;i<n;i++){
             if(isPalindrome(s,ind,i)){
                 path.push_back(s.substr(ind,i-ind+1));
-                helper(i+1,n,path,ans,s);
+                helper(i+1,n,path,s);
                 path.pop_back();
             }
         }
@@ -25,11 +27,10 @@ public:
     
     vector<vector<string>> partition(string s) {
         vector<string> path;
-        vector<vector<string>> ans;
         
         int n = s.size();
         
-        helper(0,n,path,ans,s);
+        helper(0,n,path,s);
         
         return ans;
     }

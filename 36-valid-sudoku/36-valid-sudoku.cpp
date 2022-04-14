@@ -17,6 +17,7 @@ public:
         return true;
     }
     
+    
     bool isValidSudoku(vector<vector<char>>& board) {
         unordered_set<char> st;
         
@@ -32,8 +33,6 @@ public:
             }
         }
         
-        st.clear();
-        
          for(int i=0;i<9;i++){
             st.clear();
             for(int j=0;j<9;j++){
@@ -45,8 +44,6 @@ public:
                 }
             }
         }
-        
-        st.clear();
         
          for(int i=0;i<9;i+=3){
             st.clear();

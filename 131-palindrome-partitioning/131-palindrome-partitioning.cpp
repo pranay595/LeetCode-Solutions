@@ -9,12 +9,12 @@ public:
     }
     
     void helper(int ind, int n, vector<string>& path, vector<vector<string>>& ans, string s){
-        if(ind==s.size()){
+        if(ind==n){
             ans.push_back(path);
             return;
         }
         
-        for(int i=ind;i<s.size();i++){
+        for(int i=ind;i<n;i++){
             if(isPalindrome(s,ind,i)){
                 path.push_back(s.substr(ind,i-ind+1));
                 helper(i+1,n,path,ans,s);

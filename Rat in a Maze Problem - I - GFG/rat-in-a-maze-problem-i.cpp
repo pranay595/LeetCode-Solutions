@@ -11,35 +11,24 @@ using namespace std;
 class Solution{
     public:
     void helper(int i, int j, int n, vector<vector<int>>& visited, string move,
-    vector<vector<int>>&m, vector<string>& ans){
+    vector<vector<int>>&m, vector<string>& ans, int di[], int dj[]){
         if(i==n-1 && j==n-1){
             ans.push_back(move);
             return;
         }
         
-        //DownWard
-        if(i+1<n && !visited[i+1][j] && m[i+1][j]==1){
-            visited[i][j]=1;
-            helper(i+1,j,n,visited,move+'D',m,ans);
-            visited[i][j]=0;
-        }
-        //Left
-        if(j-1>=0 && !visited[i][j-1] && m[i][j-1]==1){
-            visited[i][j]=1;
-            helper(i,j-1,n,visited,move+'L',m,ans);
-            visited[i][j]=0;
-        }
-        //Right
-        if(j+1<n && !visited[i][j+1] && m[i][j+1]==1){
-            visited[i][j]=1;
-            helper(i,j+1,n,visited,move+'R',m,ans);
-            visited[i][j]=0;
-        }
-        //Upward
-        if(i-1>=0 && !visited[i-1][j] && m[i-1][j]==1){
-            visited[i][j]=1;
-            helper(i-1,j,n,visited,move+'U',m,ans);
-            visited[i][j]=0;
+        string dir = "DLRU";
+        
+        for(int ind=0;ind<4;ind++){
+            int nexti = i+di[ind];
+            int nextj = j+dj[ind];
+            
+            if(nexti>=0 && nextj>=0 && nexti<n && nextj<n &&
+            !visited[nexti][nextj] && m[nexti][nextj]==1){
+                visited[i][j]=1;
+                helper(nexti,nextj,n,visited,move+dir[ind],m,ans,di,dj);
+                visited[i][j]=0;
+            }
         }
     }
     
@@ -48,8 +37,11 @@ class Solution{
         vector<string> ans;
         vector<vector<int>> visited(n,vector<int>(n,0));
         
+        int nexti[] = {1,0,0,-1};
+        int nextj[] = {0,-1,1,0};
+        
         if(m[0][0]==1)
-        helper(0,0,n,visited,"",m,ans);
+        helper(0,0,n,visited,"",m,ans,nexti,nextj);
         
         return ans;
     }

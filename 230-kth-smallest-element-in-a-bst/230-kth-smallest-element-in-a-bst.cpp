@@ -21,10 +21,6 @@ public:
     int kthSmallest(TreeNode* root, int k) {
         vector<int> a;
         inorder(root,a);
-        
-        for(auto i:a){
-            cout<<i<<" ";
-        }
         cout<<endl;
         return a[k-1];
     }

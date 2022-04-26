@@ -7,7 +7,7 @@ public:
         if(n==0)
             return;
         
-        if(m==0){
+        if(n==0){
             for(int i=0;i<m;i++){
                 nums1[i]=nums2[i];
             }

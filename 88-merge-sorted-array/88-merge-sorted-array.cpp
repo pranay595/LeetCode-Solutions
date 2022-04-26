@@ -7,10 +7,11 @@ public:
         if(n==0)
             return;
         
-        if(n==0){
-            for(int i=0;i<m;i++){
+        if(m==0){
+            for(int i=0;i<n;i++){
                 nums1[i]=nums2[i];
             }
+            return;
         }
         
         while(i<m){

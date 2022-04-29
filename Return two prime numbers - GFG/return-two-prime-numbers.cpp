@@ -25,27 +25,7 @@ public:
                 return {i,N-i};
             }
         }
-        
-        int n = arr.size();
-        unordered_map<int,int> mp;
-        vector<vector<int>> ans;
-        
-        
-        
-        for(int i=0;i<n;i++){
-            vector<int>temp;
-            if(mp.count(N-arr[i])){
-                temp.push_back(N-arr[i]);
-                temp.push_back(arr[i]);
-                sort(temp.begin(),temp.end());
-                ans.push_back(temp);
-            }
-            else{
-                mp[arr[i]]=arr[i];
-            }
-        }
-        sort(ans.begin(),ans.end());
-        return ans[0];
+        return {};
         
     }
 };

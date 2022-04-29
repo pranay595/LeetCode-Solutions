@@ -20,8 +20,8 @@ class Solution{
             sum+=arr[i];
             if(sum==0)
                 count++;
-            if(mp.count(sum-0))
-                count+=mp[sum-0];
+            if(mp.count(sum))
+                count+=mp[sum];
             ++mp[sum];
         }
         

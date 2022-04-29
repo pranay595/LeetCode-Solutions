@@ -29,9 +29,6 @@ class Solution{
         }
         if(mp[0])
             return true;
-        
-        if(sum==0)
-            return true;
         return false;
     }
 };

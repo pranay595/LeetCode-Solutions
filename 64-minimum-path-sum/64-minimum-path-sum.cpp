@@ -18,7 +18,7 @@ public:
     int minPathSum(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();        
-        vector<vector<int>> dp(m, vector<int>(n,-1));
+        // vector<vector<int>> dp(m, vector<int>(n,-1));
         // return helper(m-1,n-1,grid,dp);
         vector<int> prev(n,0);
         

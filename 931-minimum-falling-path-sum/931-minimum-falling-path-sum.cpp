@@ -20,14 +20,13 @@ public:
         int n = matrix.size();
         int m = matrix[0].size();
         
-        vector<int> temp(m,0);
         vector<vector<int>> dp(n,vector<int>(m,-1));
- 
+        
+        int mini = INT_MAX;
         for(int j=0;j<m;j++){
             int s = helper(n-1,j,n,m,matrix,dp);
-            temp[j] = s;
+            mini = min(s,mini);
         }
-        sort(temp.begin(),temp.end());
-        return temp[0];
+        return mini;
     }
 };

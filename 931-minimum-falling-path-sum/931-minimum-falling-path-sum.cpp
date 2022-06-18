@@ -24,8 +24,7 @@ public:
         
         int mini = INT_MAX;
         for(int j=0;j<m;j++){
-            int s = helper(n-1,j,n,m,matrix,dp);
-            mini = min(s,mini);
+            mini = min(helper(n-1,j,n,m,matrix,dp),mini);
         }
         return mini;
     }

@@ -21,8 +21,9 @@ public:
         int m = matrix[0].size();
         
         vector<int> temp(m,0);
-        for(int j=0;j<m;j++){
+        
             vector<vector<int>> dp(n,vector<int>(m,-1));
+        for(int j=0;j<m;j++){
             int s = helper(n-1,j,n,m,matrix,dp);
             temp[j] = s;
         }

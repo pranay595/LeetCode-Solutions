@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int helper(int i, int j, int n, int m, vector<vector<int>>& matrix,vector<vector<int>>& dp){
+    int helper(int i, int j, int m, vector<vector<int>>& matrix,vector<vector<int>>& dp){
         if(j<0 || j>=m)
             return 1e9;
         
@@ -10,9 +10,9 @@ public:
         if(i==0)
             return matrix[i][j];
     
-        int up = matrix[i][j] + helper(i-1,j,n,m,matrix,dp);
-        int left = matrix[i][j] + helper(i-1,j-1,n,m,matrix,dp);
-        int right = matrix[i][j] + helper(i-1,j+1,n,m,matrix,dp);
+        int up = matrix[i][j] + helper(i-1,j,m,matrix,dp);
+        int left = matrix[i][j] + helper(i-1,j-1,m,matrix,dp);
+        int right = matrix[i][j] + helper(i-1,j+1,m,matrix,dp);
         
         return dp[i][j] = min(up,min(left,right));
     }
@@ -24,7 +24,7 @@ public:
         
         int mini = INT_MAX;
         for(int j=0;j<m;j++){
-            mini = min(helper(n-1,j,n,m,matrix,dp),mini);
+            mini = min(helper(n-1,j,m,matrix,dp),mini);
         }
         return mini;
     }

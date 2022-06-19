@@ -20,9 +20,27 @@ public:
         int m = grid[0].size();
         
         vector<vector<int>> dp(m,vector<int>(m,-1));
+        
+        for(int j=0;j<m;j++){
+            dp[0][j] = grid[0][j];
+        }
+        
+        for(int i=1;i<n;i++){
+            for(int j=0;j<m;j++){
+                    int ans = 1e9;
+                for(int k=0;k<m;k++){
+                    if(j!=k){
+                        ans = min(ans,dp[i-1][k]);
+                    }
+                }
+                dp[i][j] = ans+grid[i][j];
+            }
+        }
+        
+        
         int mini = 1e9;
         for(int j=0;j<m;j++){
-            mini = min(mini,helper(n-1,j,grid,dp));
+            mini = min(mini,dp[n-1][j]);
         }
         
         return mini;

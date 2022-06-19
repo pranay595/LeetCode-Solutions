@@ -19,10 +19,13 @@ public:
         int n = grid.size();
         int m = grid[0].size();
         
-        vector<vector<int>> dp(m,vector<int>(m,-1));
+        // vector<vector<int>> dp(m,vector<int>(m,-1));
+        
+        vector<int> prev(m,0);
+        vector<int> curr(m,0);
         
         for(int j=0;j<m;j++){
-            dp[0][j] = grid[0][j];
+            prev[j] = grid[0][j];
         }
         
         for(int i=1;i<n;i++){
@@ -30,17 +33,18 @@ public:
                     int ans = 1e9;
                 for(int k=0;k<m;k++){
                     if(j!=k){
-                        ans = min(ans,dp[i-1][k]);
+                        ans = min(ans,prev[k]);
                     }
                 }
-                dp[i][j] = ans+grid[i][j];
+                curr[j] = ans+grid[i][j];
             }
+            prev = curr;
         }
         
         
         int mini = 1e9;
         for(int j=0;j<m;j++){
-            mini = min(mini,dp[n-1][j]);
+            mini = min(mini,prev[j]);
         }
         
         return mini;

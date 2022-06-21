@@ -43,7 +43,7 @@ public:
         for(int i=0;i<n;i++){
             sum+=nums[i];
         }
-        if(sum%2==1)
+        if(sum&1==1)
             return false;
         sum/=2;
         // vector<vector<int>> dp(n,vector<int>(sum+1,-1));

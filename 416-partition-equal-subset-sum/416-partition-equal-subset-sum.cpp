@@ -46,7 +46,7 @@ public:
         if(sum%2==1)
             return false;
         sum/=2;
-        vector<vector<int>> dp(n,vector<int>(sum+1,-1));
+        // vector<vector<int>> dp(n,vector<int>(sum+1,-1));
         // return helper(n-1,sum,nums,dp);
         return can(n,sum,nums);
     }

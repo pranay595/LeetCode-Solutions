@@ -1,21 +1,21 @@
 class Solution {
 public:
-    bool helper(int ind, int sum, int target, vector<int>& nums, vector<vector<int>> &dp){
-        if(sum==target)
+    bool helper(int ind, int target, vector<int>& nums, vector<vector<int>> &dp){
+        if(target==0)
             return true;
         if(ind==0){
-            return (sum-nums[ind] == target+nums[ind]);
+            return (target==nums[ind]);
         }
         
-        if(dp[ind][sum]!=-1)
-            return dp[ind][sum];
+        if(dp[ind][target]!=-1)
+            return dp[ind][target];
         
-        bool notPick = helper(ind-1,sum,target,nums,dp);
+        bool notPick = helper(ind-1,target,nums,dp);
         bool pick = false;
-        if(target<=sum-2*nums[ind])
-            pick = helper(ind-1,sum-nums[ind],target+nums[ind],nums,dp);
+        if(target>=nums[ind])
+            pick = helper(ind-1,target-nums[ind],nums,dp);
         
-        return dp[ind][sum] = pick || notPick;
+        return dp[ind][target] = pick || notPick;
     }
     bool canPartition(vector<int>& nums) {
         int n = nums.size();
@@ -25,7 +25,8 @@ public:
         }
         if(sum%2==1)
             return false;
+        sum/=2;
         vector<vector<int>> dp(n,vector<int>(sum+1,-1));
-        return helper(n-1,sum,0,nums,dp);
+        return helper(n-1,sum,nums,dp);
     }
 };

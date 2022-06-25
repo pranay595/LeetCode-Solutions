@@ -24,8 +24,8 @@ int helper(int i, int j, vector<vector<int>> &dp, vector<vector<int>>& obstacleG
         int m = obstacleGrid.size();
         int n = obstacleGrid[0].size();
         
-        // vector<vector<int>> dp(m,vector<int>(n,-1));
-        // return helper(m-1,n-1,dp,obstacleGrid);
+        vector<vector<int>> dp(m,vector<int>(n,-1));
+        return helper(m-1,n-1,dp,obstacleGrid);
         vector<int> prev(n,0);
         
         for(int i=0;i<m;i++){

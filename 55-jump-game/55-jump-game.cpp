@@ -4,9 +4,6 @@ public:
         if(ind>=nums.size()-1)
             return true;
         
-        // if(nums[ind]==0)
-        //     return false;
-        
         if(dp[ind]!=-1)
             return dp[ind];
         
@@ -20,8 +17,10 @@ public:
     }
     bool canJump(vector<int>& nums) {
         int n = nums.size();
-        vector<int> dp(n+1,0);
+        // vector<int> dp(n+1,0);
         // return helper(0,n,nums,dp);
+        
+        vector<bool> dp(n);
         
         dp[n-1]=1;
         for(int i=n-2;i>=0;i--){

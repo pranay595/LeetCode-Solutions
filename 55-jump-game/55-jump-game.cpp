@@ -4,6 +4,9 @@ public:
         if(ind>=nums.size()-1)
             return true;
         
+        if(nums[ind]==0)
+            return false;
+        
         if(dp[ind]!=-1)
             return dp[ind];
         

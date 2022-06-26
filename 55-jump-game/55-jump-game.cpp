@@ -1,18 +1,16 @@
 class Solution {
 public:
     bool helper(int ind,int n, vector<int>& nums, vector<int> &dp){
-        if(ind==n-1)
+        if(ind>=nums.size()-1)
             return true;
-        
-        if(nums[ind]==0)
-            return false;
         
         if(dp[ind]!=-1)
             return dp[ind];
         
-        for(int i=1;i<=nums[ind];i++){
+        for(int i=nums[ind];i>0;i--)
+        {
             if(helper(ind+i,n,nums,dp))
-                return dp[ind+i]=true;
+                return dp[ind]=true;
         }
         return dp[ind] = false;
         

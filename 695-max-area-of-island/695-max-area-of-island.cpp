@@ -5,12 +5,12 @@ public:
             return 0;
         
         grid[i][j]=0;
-        int a = 1 + dfs(grid,i+1,j);
-        int b = 1 + dfs(grid,i-1,j);
-        int c = 1 + dfs(grid,i,j+1);
-        int d = 1 + dfs(grid,i,j-1);
+        int a = dfs(grid,i+1,j);
+        int b = dfs(grid,i-1,j);
+        int c = dfs(grid,i,j+1);
+        int d = dfs(grid,i,j-1);
         
-        return (a+b+c+d);
+        return 1+(a+b+c+d);
     }
     int maxAreaOfIsland(vector<vector<int>>& grid) {
         int n = grid.size();
@@ -24,6 +24,6 @@ public:
             }
         }
         
-        return count/4;
+        return count;
     }
 };

@@ -7,12 +7,12 @@ public:
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
                 if(boxes[j]=='1')
-                ans[i]+=abs(j-i);
+                ans[i]+=(j-i);
             }
             
             for(int k=0;k<i;k++){
                 if(boxes[k]=='1')
-                ans[i]+=abs(k-i);
+                ans[i]+=(i-k);
             }
         }
         

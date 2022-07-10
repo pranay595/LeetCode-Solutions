@@ -7,33 +7,20 @@ public:
         for(int i=0;i<n;i++){
             if(s[i]=='(' || s[i]=='[' || s[i]=='{')
                 st.push(s[i]);
-            
-            else if(!st.empty() && s[i]==')'){
-                char tp = st.top();
-                if(tp =='(')
-                    st.pop();
-                else
-                st.push(s[i]);
+            else{
+                if(st.empty())
+                    return false;
+                else if(s[i]==')' && st.top()!='('){
+                    return false;
+                }
+                else if(s[i]==']' && st.top()!='['){
+                    return false;
+                }
+                else if(s[i]=='}' && st.top()!='{'){
+                    return false;
+                }
+                else st.pop();
             }
-            
-            else if(!st.empty() && s[i]==']'){
-                char tp = st.top();
-                if(tp=='[')
-                    st.pop();
-                else
-                st.push(s[i]);
-            }
-            
-            else if(!st.empty() && s[i]=='}'){
-                char tp = st.top();
-                if(tp=='{')
-                    st.pop();
-                else
-                st.push(s[i]);
-            }
-            else
-                st.push(s[i]);
-            
         }
         
         return st.empty();
